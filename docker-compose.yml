@@ -12,8 +12,9 @@ services:
     volumes:
       - ${ROOT_DIR}/config/sonarr-config:/config
       - ${ROOT_DIR}/data:/data
-    ports:
-      - "8989:8989"
+    # ports:
+    #   - "8989:8989"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   radarr:
@@ -27,8 +28,9 @@ services:
     volumes:
       - ${ROOT_DIR}/config/radarr-config:/config
       - ${ROOT_DIR}/data:/data
-    ports:
-      - "7878:7878"
+    # ports:
+    #   - "7878:7878"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   lidarr:
@@ -42,8 +44,9 @@ services:
     volumes:
       - ${ROOT_DIR}/config/lidarr-config:/config
       - ${ROOT_DIR}/data:/data
-    ports:
-      - "8686:8686"
+    # ports:
+    #   - "8686:8686"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   readarr:
@@ -57,8 +60,9 @@ services:
     volumes:
       - ${ROOT_DIR}/config/readarr-config:/config
       - ${ROOT_DIR}/data:/data
-    ports:
-      - "8787:8787"
+    # ports:
+    #   - "8787:8787"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   mylar3:
@@ -71,8 +75,9 @@ services:
     volumes:
       - ${ROOT_DIR}/config/mylar-config:/config
       - ${ROOT_DIR}/data:/data
-    ports:
-      - "8090:8090"
+    # ports:
+    #   - "8090:8090"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   audiobookshelf:
@@ -86,8 +91,9 @@ services:
       - ${ROOT_DIR}/data/media/audiobooks:/audiobooks
       - ${ROOT_DIR}/data/media/podcasts:/podcasts
       - ${ROOT_DIR}/data/media/audiobookshelf-metadata:/metadata
-    ports:
-      - "13378:80"
+    # ports:
+    #   - "13378:80"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   bazarr:
@@ -100,8 +106,9 @@ services:
     volumes:
       - ${ROOT_DIR}/config/bazarr-config:/config
       - ${ROOT_DIR}/data/media:/media
-    ports:
-      - "6767:6767"
+    # ports:
+    #   - "6767:6767"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   overseerr:
@@ -114,8 +121,9 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${ROOT_DIR}/config/overseerr-config:/app/config
-    ports:
-      - "5055:5055"
+    # ports:
+    #   - "5055:5055"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   jellyseerr:
@@ -128,8 +136,9 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${ROOT_DIR}/config/jellyseerr-config:/app/config
-    ports:
-      - "5056:5055"
+    # ports:
+    #   - "5056:5055"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   prowlarr:
@@ -142,8 +151,9 @@ services:
       - TZ=${TIMEZONE}
     volumes:
       - ${ROOT_DIR}/config/prowlarr-config:/config
-    ports:
-      - "9696:9696"
+    # ports:
+    #   - "9696:9696"
+    network_mode: "container:gluetun"
     restart: unless-stopped
   
   jackett:
@@ -156,8 +166,9 @@ services:
       - TZ=${TIMEZONE}    
     volumes:
       - ${ROOT_DIR}/config/jackett-config:/config
-    ports:
-      - 9117:9117
+    # ports:
+    #   - 9117:9117
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   flaresolverr:
@@ -168,8 +179,9 @@ services:
       - LOG_HTML=${LOG_HTML:-false}
       - CAPTCHA_SOLVER=${CAPTCHA_SOLVER:-none}
       - TZ=${TIMEZONE}
-    ports:
-      - "8191:8191"
+    # ports:
+    #   - "8191:8191"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   # plex:
@@ -213,8 +225,9 @@ services:
     volumes:
       - ${ROOT_DIR}/config/jellyfin-config:/config
       - ${ROOT_DIR}/data/media:/data
-    ports:
-      - "8096:8096"
+    # ports:
+    #   - "8096:8096"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   qbittorrent:
@@ -229,10 +242,11 @@ services:
     volumes:
       - ${ROOT_DIR}/config/qbittorrent-config:/config
       - ${ROOT_DIR}/data/torrents:/data/torrents
-    ports:
-      - "8080:8080"
-      - "6881:6881"
-      - "6881:6881/udp"
+    # ports:
+    #   - "8080:8080"
+    #   - "6881:6881"
+    #   - "6881:6881/udp"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 
   sabnzbd:
@@ -246,7 +260,8 @@ services:
     volumes:
       - ${ROOT_DIR}/config/sabnzbd-config:/config
       - ${ROOT_DIR}/data/usenet:/data/usenet
-    ports:
-      - "8081:8080"
+    # ports:
+    #   - "8081:8080"
+    network_mode: "container:gluetun"
     restart: unless-stopped
 

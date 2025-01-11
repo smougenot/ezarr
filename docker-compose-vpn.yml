@@ -30,3 +30,22 @@ services:
       # Server list updater
       # See https://github.com/qdm12/gluetun-wiki/blob/main/setup/servers.md#update-the-vpn-servers-list
       - UPDATER_PERIOD=${UPDATER_PERIOD:-}
+    ports:
+      - "5055:5055" # overseerr
+      - "5056:5055" # jellyseerr
+      - "6767:6767" # bazarr
+      - "6881:6881" # qbittorrent
+      - "6881:6881/udp" # qbittorrent
+      - "7878:7878" # radarr
+      - "8080:8080" # qbittorrent
+      - "8081:8080" # sabnzbd
+      - "8090:8090" # mylar3
+      - "8096:8096" # jellyfin
+      - "8181:8181" # tautulli
+      - "8191:8191" # flaresolverr
+      - "8686:8686" # lidarr
+      - "8787:8787" # readarr
+      - "8989:8989" # sonarr
+      - "9117:9117" # jackett
+      - "9696:9696" # prowlarr
+      - "13378:80"  # audiobookshelf
