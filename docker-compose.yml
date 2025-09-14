@@ -266,3 +266,20 @@ services:
     network_mode: "container:gluetun"
     restart: unless-stopped
 
+# SMT 
+# ADD File explorer container
+  filebrowser:
+    image: filebrowser/filebrowser:s6
+    container_name: filebrowser
+    environment:
+      - PUID=${FILEBROWSER_UID}
+      - PGID=${MEDIACENTER_GID}
+      - TZ=${TIMEZONE}
+    volumes:
+      - ${ROOT_DIR}/config/filebrowser-config:/config
+      - ${ROOT_DIR}/config/filebrowser-database:/database
+      - ${ROOT_DIR}/data/media:/srv/media
+      - /media_usb:/srv/media_usb
+    ports:
+      - "8087:80"
+    restart: unless-stopped
