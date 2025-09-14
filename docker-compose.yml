@@ -50,7 +50,7 @@ services:
     restart: unless-stopped
 
   readarr:
-    image: lscr.io/linuxserver/readarr:develop
+    image: lscr.io/linuxserver/readarr:db02fba99182aaa9321558b52c972a0ae75e6a6deaff59efd734ffc5efe985d5
     container_name: readarr
     environment:
       - PUID=${READARR_UID}
